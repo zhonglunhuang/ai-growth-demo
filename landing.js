@@ -34,7 +34,7 @@
       const anchor = lp.x > cx + 12 ? 'start' : lp.x < cx - 12 ? 'end' : 'middle';
       labels += `<text x="${lp.x.toFixed(1)}" y="${(lp.y - 2).toFixed(1)}" text-anchor="${anchor}" font-size="12.5" font-weight="700" fill="#14152B">${nd.name}</text><text x="${lp.x.toFixed(1)}" y="${(lp.y + 13).toFixed(1)}" text-anchor="${anchor}" font-size="10.5" fill="#8B5CF6" font-weight="600">${nd.metric}</text>`;
     });
-    return `<svg viewBox="0 0 380 380" style="width:100%;max-width:380px" role="img" aria-label="成長飛輪">
+    return `<svg viewBox="0 0 380 380" class="fly-svg" role="img" aria-label="成長飛輪">
       <defs><linearGradient id="hub" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B53E8"/><stop offset="1" stop-color="#7C6CFF"/></linearGradient></defs>
       <circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="#E8E9F2" stroke-width="2"/>
       <circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="#16A06A" stroke-width="3" stroke-linecap="round" stroke-dasharray="70 760">

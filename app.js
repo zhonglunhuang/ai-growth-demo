@@ -90,7 +90,12 @@
         ${icon(n.ic, 'nav__ic')}<span>${n.name}</span>${badge}</button>`;
     }).join('');
     $('#nav').querySelectorAll('[data-route]').forEach((b) =>
-      b.addEventListener('click', () => { location.hash = b.dataset.route; }));
+      b.addEventListener('click', () => { location.hash = b.dataset.route; closeMobileNav(); }));
+  }
+
+  function closeMobileNav() {
+    document.querySelector('.sidebar')?.classList.remove('is-open');
+    const bd = document.getElementById('sbBackdrop'); if (bd) bd.hidden = true;
   }
 
   /* ---------- 渲染：頂欄客戶切換 ---------- */
@@ -397,10 +402,12 @@
             <div class="card__sub">CPA 門檻 NT$ ${A.threshold} · 超標即自動暫停</div></div>
             <span class="tag tag--brand">${icon('bolt')} 自動駕駛中</span>
           </div>
+          <div class="table-scroll">
           <table class="table">
             <thead><tr><th>素材 / 受眾</th><th>花費</th><th>CPA</th><th>ROAS</th><th>自動</th></tr></thead>
             <tbody id="adBody">${rows}</tbody>
           </table>
+          </div>
           <div class="alert" style="margin-top:16px;background:#FDEBE5;border-color:#F7D4CD">
             <div class="alert__icon" style="background:#fff;color:var(--m2)">${icon('bolt')}</div>
             <div class="alert__body"><h4 style="color:var(--m2)">系統剛剛自動執行</h4>
@@ -997,6 +1004,14 @@
 
     renderNav();
     renderClientSwitch();
+
+    // 手機側邊欄抽屜
+    const sidebar = document.querySelector('.sidebar'), backdrop = $('#sbBackdrop');
+    $('#navToggle')?.addEventListener('click', () => {
+      const open = sidebar.classList.toggle('is-open');
+      backdrop.hidden = !open;
+    });
+    backdrop?.addEventListener('click', closeMobileNav);
 
     // 客戶切換選單開合
     $('#clientSwitch').addEventListener('click', (e) => {
