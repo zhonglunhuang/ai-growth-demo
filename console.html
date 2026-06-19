@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>飛輪 Flywheel · 電商 AI 自動化營運控制台</title>
+  <meta name="description" content="電商 AI 自動化藍圖的可操作產品原型：一位 PM 用同一座控制台同時服務多位老闆。AI 不只執行，直接給你結論。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 啟動載入畫面 -->
+  <div id="boot" class="boot">
+    <div class="boot__mark" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="56" height="56">
+        <g class="boot__fly">
+          <circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="104 34" stroke-linecap="round"/>
+          <circle cx="32" cy="10" r="5" fill="currentColor"/>
+        </g>
+      </svg>
+    </div>
+    <div class="boot__title">飛輪 Flywheel</div>
+    <div class="boot__sub">正在啟動 AI 自動化營運引擎…</div>
+  </div>
+
+  <!-- 應用骨架 -->
+  <div id="shell" class="shell" hidden>
+    <!-- 側邊欄 -->
+    <aside class="sidebar">
+      <div class="sidebar__brand">
+        <span class="brand__logo" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="30" height="30">
+            <g class="brand__fly">
+              <circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="104 34" stroke-linecap="round"/>
+              <circle cx="32" cy="10" r="6" fill="currentColor"/>
+            </g>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <strong>飛輪</strong>
+          <small>Flywheel OS</small>
+        </span>
+      </div>
+
+      <nav class="nav" id="nav" aria-label="主要導覽"></nav>
+
+      <div class="sidebar__foot">
+        <div class="pm-card">
+          <div class="pm-card__avatar">陳</div>
+          <div class="pm-card__meta">
+            <strong>陳柏宇</strong>
+            <small>營運 PM · 同時服務 4 位老闆</small>
+          </div>
+        </div>
+        <div class="pm-card__leverage">
+          <span>槓桿率</span>
+          <strong>1 : 4</strong>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 主區 -->
+    <div class="main">
+      <header class="topbar">
+        <div class="topbar__left">
+          <button class="client-switch" id="clientSwitch" aria-haspopup="listbox">
+            <span class="client-switch__dot"></span>
+            <span class="client-switch__name" id="clientName">—</span>
+            <svg class="client-switch__chev" viewBox="0 0 16 16" width="16" height="16"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="client-menu" id="clientMenu" hidden role="listbox"></div>
+        </div>
+        <div class="topbar__right">
+          <a class="env-pill" href="index.html" style="text-decoration:none;color:var(--brand);background:var(--brand-soft)" title="回到提案頁">← 提案頁</a>
+          <div class="env-pill" title="此為原型展示，資料為模擬">
+            <span class="env-pill__dot"></span> 原型展示 · 模擬資料
+          </div>
+          <div class="topbar__date" id="topDate"></div>
+        </div>
+      </header>
+
+      <main class="view" id="view" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
