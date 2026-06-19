@@ -195,6 +195,13 @@ body.lp { overflow: auto; background: var(--surface); }
   .cta-band p { font-size: 14.5px; }
   .btn--lg { padding: 12px 20px; font-size: 14px; }
   .leverage__caption { font-size: 12.5px; }
+  .roads { border: 1px solid rgba(255,255,255,.1); border-radius: var(--r); }
+  .roads-table { font-size: 12.5px; min-width: 480px; }
+  .roads-table th, .roads-table td { padding: 10px 11px; }
+  .leverage { gap: 16px; }
+  .principle { padding: 16px 15px; }
+  .found-card { padding: 15px; }
+  .mod-card { padding: 20px 18px; }
 }
 
 /* footer */

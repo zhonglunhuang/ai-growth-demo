@@ -188,6 +188,8 @@ button { font-family: inherit; cursor: pointer; }
 .card__sub { font-size: 12.5px; color: var(--ink-3); margin-top: 2px; font-weight: 500; }
 
 .grid { display: grid; gap: 18px; }
+/* 避免 grid blowout：讓 grid 子項可縮小於內容最小寬，使內層 overflow 捲動生效 */
+.grid > *, .gen-layout > *, .cs-layout > *, .flywheel-wrap > * { min-width: 0; }
 .grid-2 { grid-template-columns: 1fr 1fr; }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
@@ -529,6 +531,8 @@ button { font-family: inherit; cursor: pointer; }
 
 @media (max-width: 760px) {
   .shell { grid-template-columns: 1fr; }
+  /* 蓋過行內 grid-template-columns，讓所有雙/三欄在手機收成單欄 */
+  .grid-2, .grid-3 { grid-template-columns: 1fr !important; }
   .nav-toggle { display: flex; }
   .sidebar {
     position: fixed; top: 0; left: 0; bottom: 0; width: 264px; z-index: 60;
@@ -560,6 +564,10 @@ button { font-family: inherit; cursor: pointer; }
   .chart-tip { display: none; }                            /* 觸控無 hover */
   .spark-wrap { flex-wrap: wrap; justify-content: flex-end; }
   .card__head { flex-wrap: wrap; }
+  .stat-pill { min-width: 0; }
+  .stat-pill strong { font-size: 16px; }
+  .stat-pill small { font-size: 10px; }
+  .stat-row { gap: 8px; }
 }
 
 @media (max-width: 480px) {
